@@ -1,0 +1,22 @@
+baseURL = 'https://han-bingchen.github.io/'
+languageCode = 'en-us'
+title = "Bingchen Han's Website"
+theme = ''
+
+[outputs]
+home = ['HTML', 'JSON']
+
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 1
+
+[[menu.main]]
+name = 'About'
+url = '/about/'
+weight = 2
+
+[[menu.main]]
+name = 'Articles'
+url = '/posts/'
+weight = 3

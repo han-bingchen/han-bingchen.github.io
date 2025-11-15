@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+    <div class="meta">
+        Published: {{ .Date.Format "2006-01-02" }}
+        {{ if .Params.categories }}
+        | Categories: 
+        {{ range .Params.categories }}
+        <a href="/categories/{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+        {{ end }}
+    </div>
+    
+    {{ if .Params.tags }}
+    <div class="meta">
+        Tags: 
+        {{ range .Params.tags }}
+        <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    <hr style="margin: 20px 0;">
+    
+    {{ .Content }}
+    
+    <hr style="margin: 20px 0;">
+    
+    <nav style="margin-top: 30px;">
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.Permalink }}" style="color: #3498db; text-decoration: none;">← {{ .PrevInSection.Title }}</a>
+        {{ end }}
+        
+        {{ if and .PrevInSection .NextInSection }}<br>{{ end }}
+        
+        {{ if .NextInSection }}
+        <a href="{{ .NextInSection.Permalink }}" style="color: #3498db; text-decoration: none; float: right;">{{ .NextInSection.Title }} →</a>
+        {{ end }}
+    </nav>
+</article>
+{{ end }}

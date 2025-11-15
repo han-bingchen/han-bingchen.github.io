@@ -1,0 +1,47 @@
+{{ define "main" }}
+<section class="home">
+    <div style="display:flex; gap:40px; align-items:flex-start;">
+        <!-- 左侧头像卡片 -->
+        <aside style="width:320px;">
+            <div style="background:#fff; border-radius:12px; padding:24px; box-shadow:0 6px 20px rgba(0,0,0,0.06); text-align:center;">
+                <!-- 替换下面的 src 为你站点的头像路径，例如 /images/avatar.jpg -->
+                <img src="/images/avatar_virtual.png" alt="avatar" style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin-bottom:16px;">
+                <h3 style="margin:0 0 8px;">Bingchen Han</h3>
+                <div style="color:#6b7280;margin-bottom:12px;font-size:14px;">Student at <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Peking University</a></div>
+                <p style="color:#6b7280;font-size:14px;line-height:1.5;margin:0;">Focusing on Embodied AI, Deep Learing, and Computer Vision</p>
+                <div style="margin-top:16px;">
+                    <!-- GitHub 图标（简单文本或用 SVG 替换） -->
+                    <a href="https://github.com/han-bingchen" title="GitHub" style="margin:0 8px;color:#4f46e5;text-decoration:none;">🔗 GitHub</a>
+                    <!-- 邮件链接，替换为真实邮箱 -->
+                    <a href="2400011340@stu.pku.edu.cn" title="Email" style="margin:0 8px;color:#4f46e5;text-decoration:none;">✉️ Mail</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧主内容 -->
+        <main style="flex:1;">
+            <h2 style="margin-top:0;">Bingchen Han</h2>
+            <p style="font-size: 16px; margin: 20px 0; line-height: 1.8;">
+                majoring in Information and Computing Science
+            </p>
+            <p style="font-size: 16px; margin: 20px 0; line-height: 1.8;">
+                <a href="https://eecs.pku.edu.cn/" target="_blank" rel="noopener noreferrer">School of Electronics Engineering and Computer Science, Peking University.</a>
+            </p>
+
+            <h3 style="margin-top: 40px; color: #2c3e50;">Latest Articles</h3>
+            {{ if .Site.RegularPages }}
+            <ul class="article-list">
+                {{ range first 5 .Site.RegularPages }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <div class="meta">{{ .Date.Format "2006-01-02" }}</div>
+                </li>
+                {{ end }}
+            </ul>
+            {{ else }}
+            <p>No articles yet</p>
+            {{ end }}
+        </main>
+    </div>
+</section>
+{{ end }}
